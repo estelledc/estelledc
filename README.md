@@ -1,3 +1,8 @@
+## Now
+ I’m currently learning ![Rust](https://img.shields.io/badge/lang-Rust-blueviolet)
+ in https://github.com/LearningOS/2025s-rcore-estelledc
+
+## Achievement
 - 2025寒假练 - 基于小脚丫FPGA STEP BaseBoard V4.0套件实现语音控制计算器
 https://www.eetree.cn/project/3974
 
