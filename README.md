@@ -1,1 +1,5 @@
+- 2025寒假练 - 基于小脚丫FPGA STEP BaseBoard V4.0套件实现语音控制计算器
+https://www.eetree.cn/project/3974
+
+- App Development with Swift Certified User：
 https://www.credly.com/badges/9fa3da74-6a5a-4f91-af77-a477e4bfa541/public_url
