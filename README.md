@@ -1,1 +1,54 @@
-<a href="https://app.daily.dev/jasonxun"><img src="https://api.daily.dev/devcards/v2/2VSGjlwFTNvDjRelZhwmt.png?r=17w&type=default" width="356" alt="Jason Xun's Dev Card"/></a>
+# Jason Xun
+
+**AI Native Builder · Full-stack intern · Riding and knowledge-system enthusiast**
+
+我在学习怎样用 AI 放大真实交付：先建立判断和约束，再让 AI 执行、验证、复盘，最后把经验沉淀成下一次能直接复用的系统。
+
+- Personal site: [estelledc.github.io](https://estelledc.github.io/)
+- AI product: [LightRead](https://lightingread.cn)
+- Focus: AI Agent, frontend engineering, knowledge systems, content workflows
+
+## What I Build
+
+### LightRead
+
+学术文献搜索、深读和报告生成 AI Agent。核心设计是 Driver / Tools / Writer 三层闭环，用结构化步骤和 Schema 约束模型行为，让 AI 能持续、可靠地产出内容。
+
+### Thyself
+
+个性化内容推荐产品，每天生成 8 篇长文。用 Claude Code 的 Plan-then-Execute 工作流推进架构规划、实现和测试，提升开发速度与一致性。
+
+### 触见千年
+
+visionOS 文物体验项目，全国二等奖。从立项、架构规划到交互优化都引入 AI 辅助，核心交互响应从 2 秒优化到 0.8 秒。
+
+### Agent Workflow
+
+围绕 activity-planner 做过 Agent 调度、约束求解器、LangGraph 重写、Saga 补偿和 E2E harness。我的关注点不是让 LLM 做所有事，而是把硬约束交给确定性代码，把理解和表达交给模型。
+
+## How I Work
+
+我把学习和交付拆成一条闭环链路：
+
+```text
+Daily -> Problems -> Learnings -> Wiki -> Feedback -> Next Action
+```
+
+- `Daily`: 记录每天做了什么、卡在哪里、学到了什么
+- `Problems`: 非平凡问题单独写根因、排查路径和复用经验
+- `Learnings`: 把知识点写成以后能直接复用的操作手册
+- `Wiki`: 维护知识地图、当前进度、矛盾和缺口
+- `Feedback`: 把外部反馈拆成可执行、可检查的行动项
+
+## Current Themes
+
+- AI Native 工作流：人负责方向、约束和验收，AI 负责放大执行
+- Frontend 工程：React、Zustand、Router、Canvas/WebGL、H5 App 内外降级
+- Agent 系统：LangGraph、checkpoint、interrupt、工具调用边界、长期记忆
+- 工程实践：调试纪律、真机验证、干净提交、测试 harness、复盘系统
+
+## Links
+
+- Main site: [https://estelledc.github.io](https://estelledc.github.io/)
+- LightRead: [https://lightingread.cn](https://lightingread.cn)
+- Archive blog: [https://estelledc.github.io/archive-2024/](https://estelledc.github.io/archive-2024/)
