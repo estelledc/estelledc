@@ -1,59 +1,55 @@
 # Jason Xun
 
-**Product Systems Builder · AI collaboration · Full-stack delivery**
+**Product Systems Builder · AI orchestration · Full-stack delivery**
 
-我关注的是如何把模糊想法带到真实世界：先判断什么问题值得做，再把产品约束、AI 协作、全栈工程、验证和复盘组织成可持续运转的系统。
+I turn ambiguous product ideas into shipped systems: product judgment first, AI agents as leverage, full-stack engineering as the delivery surface, and verification as the operating discipline.
 
-- Personal site: [estelledc.github.io](https://estelledc.github.io/)
-- AI project: [全智评](https://www.quanzhiping.com/)
-- Content product: [Thyself](https://www.thyself.cc/)
-- Focus: product judgment, AI orchestration, full-stack delivery, knowledge systems
+我关注的不是“会用 AI 写代码”，而是如何判断什么问题值得做，设计系统如何闭环，组织 AI、工具和人协作，并把结果交付到真实世界。
 
-## What I Build
+[Personal site](https://estelledc.github.io/) · [全智评](https://www.quanzhiping.com/) · [Thyself](https://www.thyself.cc/)
 
-### 全智评
+## Direction
 
-AI 实操视频智能评价系统，面向物理、化学、生物实验和职业技能考核场景。教师创建评价项目与课堂码，学生上传实操视频，后端用 ASR、关键帧提取、Qwen 多模态评分和 Celery 异步编排生成评价明细。
+I work across frontend, backend, and AI tooling, but I do not treat those as identity boxes. They are surfaces of one job: own the path from problem definition to shipped product.
 
-技术栈覆盖 React 19、Vite、TypeScript、Ant Design、FastAPI、PostgreSQL、Redis、Celery、阿里云 OSS、Docker Compose 和 nginx。我的关注点是把 AI 评分能力包装成教师端、学生端和可部署后端流水线，而不是只停留在模型调用 demo。
+The durable version of that role is the person who can:
 
-### Thyself
+- frame a vague problem into a concrete product constraint
+- design the system loop across interface, data, backend, AI, deployment, and feedback
+- delegate execution to agents without losing judgment or accountability
+- verify outcomes with tests, real-device checks, logs, and written retrospectives
 
-有限、可解释的长文推荐产品。每天只给用户 8 篇文章，不做无限流；每条推荐都要说明为什么适合这个人，并把阅读、反思和标签沉淀进 Persona 画像。
+## Selected Work
 
-工程上覆盖 Next.js 前端、FastAPI 后端、PostgreSQL / pgvector、Redis、worker 和浏览器扩展。我的关注点是把“品味和好奇心”做成可运行的推荐闭环，而不是只做内容流界面。
-
-### 触见千年
-
-visionOS 文物体验项目，全国二等奖。从立项、架构规划到交互优化都引入 AI 辅助，核心交互响应从 2 秒优化到 0.8 秒。
-
-### Agent Workflow
-
-围绕 activity-planner 做过 Agent 调度、约束求解器、LangGraph 重写、Saga 补偿和 E2E harness。我的关注点不是让 LLM 做所有事，而是把硬约束交给确定性代码，把理解和表达交给模型。
+| Project | What it is | System angle |
+| --- | --- | --- |
+| [全智评](https://www.quanzhiping.com/) | AI evaluation system for practical experiment and vocational-skill videos | Productized an AI scoring workflow across teacher/student interfaces, upload pipeline, ASR, key-frame extraction, multimodal scoring, asynchronous jobs, storage, and deployment. |
+| [Thyself](https://www.thyself.cc/) | Finite, explainable longform recommendation product | Built around a daily 8-article panel, readable recommendation reasons, Persona modeling, quality gates, LLM reranking, caching, and a browser-extension feedback loop. |
+| [触见千年](https://www.bilibili.com/video/BV1Pv1EB3EQT) | Apple Vision Pro cultural-heritage interaction project | Turned the Zenghouyi bells into an immersive, gesture-driven spatial experience with SwiftUI, RealityKit, ARKit, 3D scene loading, and interaction optimization. |
+| Agent Workflow | Activity-planning and multi-step agent orchestration experiments | Moved from ad-hoc scheduling toward LangGraph, checkpointing, interrupts, Saga compensation, deterministic constraints, and E2E verification. |
 
 ## How I Work
 
-我把学习和交付拆成一条闭环链路：
-
 ```text
-Daily -> Problems -> Learnings -> Wiki -> Feedback -> Next Action
+Problem -> Constraints -> Plan -> Build -> Verify -> Reflect -> Reuse
 ```
 
-- `Daily`: 记录每天做了什么、卡在哪里、学到了什么
-- `Problems`: 非平凡问题单独写根因、排查路径和复用经验
-- `Learnings`: 把知识点写成以后能直接复用的操作手册
-- `Wiki`: 维护知识地图、当前进度、矛盾和缺口
-- `Feedback`: 把外部反馈拆成可执行、可检查的行动项
+- **Product judgment**: clarify users, constraints, success signals, and what not to build.
+- **AI orchestration**: use agents for exploration, implementation, review, and repetitive execution, while keeping human judgment in the loop.
+- **Engineering delivery**: connect frontend, backend, storage, async jobs, deployment, and observability into one working system.
+- **Verification discipline**: test the actual symptom, inspect the diff, check the live surface, and avoid claiming success without evidence.
+- **Knowledge compounding**: convert problems, project lessons, and feedback into reusable notes, wiki links, and next actions.
 
-## Current Themes
+## Current Focus
 
-- Product Judgment：需求澄清、问题边界、优先级和上线价值判断
-- System Delivery：前端、后端、数据流、部署和跨端体验交付
-- AI Orchestration：Agent 工作流、上下文工程、checkpoint、interrupt 和 QA
-- Compounding System：调试纪律、真机验证、干净提交、测试 harness、Wiki 和反馈闭环
+- Product systems that combine interface, data, AI capability, and feedback loops.
+- Agent workflows that are inspectable, interruptible, recoverable, and testable.
+- Frontend quality under real constraints: mobile, WebView, canvas/WebGL, accessibility, and fallback behavior.
+- Practical AI engineering: context design, quality gates, evals, rollback paths, and human review points.
 
-## Links
+## Operating Principles
 
-- Main site: [https://estelledc.github.io](https://estelledc.github.io/)
-- 全智评: [https://www.quanzhiping.com](https://www.quanzhiping.com/)
-- Thyself: [https://www.thyself.cc](https://www.thyself.cc/)
+- Build the smallest system that can prove the real behavior.
+- Keep AI powerful, but never unaccountable.
+- Prefer clear constraints over clever prompts.
+- Make every hard-won lesson reusable.
