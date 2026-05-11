@@ -5,14 +5,16 @@
 我在学习怎样用 AI 放大真实交付：先建立判断和约束，再让 AI 执行、验证、复盘，最后把经验沉淀成下一次能直接复用的系统。
 
 - Personal site: [estelledc.github.io](https://estelledc.github.io/)
-- AI product: [LightRead](https://lightingread.cn)
+- AI project: [全智评](https://github.com/estelledc/quanzhiping-deploy)
 - Focus: AI Agent, frontend engineering, knowledge systems, content workflows
 
 ## What I Build
 
-### LightRead
+### 全智评
 
-学术文献搜索、深读和报告生成 AI Agent。核心设计是 Driver / Tools / Writer 三层闭环，用结构化步骤和 Schema 约束模型行为，让 AI 能持续、可靠地产出内容。
+AI 实操视频智能评价系统，面向物理、化学、生物实验和职业技能考核场景。教师创建评价项目与课堂码，学生上传实操视频，后端用 ASR、关键帧提取、Qwen 多模态评分和 Celery 异步编排生成评价明细。
+
+技术栈覆盖 React 19、Vite、TypeScript、Ant Design、FastAPI、PostgreSQL、Redis、Celery、阿里云 OSS、Docker Compose 和 nginx。我的关注点是把 AI 评分能力包装成教师端、学生端和可部署后端流水线，而不是只停留在模型调用 demo。
 
 ### Thyself
 
@@ -50,5 +52,5 @@ Daily -> Problems -> Learnings -> Wiki -> Feedback -> Next Action
 ## Links
 
 - Main site: [https://estelledc.github.io](https://estelledc.github.io/)
-- LightRead: [https://lightingread.cn](https://lightingread.cn)
+- 全智评: [https://github.com/estelledc/quanzhiping-deploy](https://github.com/estelledc/quanzhiping-deploy)
 - Archive blog: [https://estelledc.github.io/archive-2024/](https://estelledc.github.io/archive-2024/)
