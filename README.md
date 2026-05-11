@@ -5,7 +5,7 @@
 我在学习怎样用 AI 放大真实交付：先建立判断和约束，再让 AI 执行、验证、复盘，最后把经验沉淀成下一次能直接复用的系统。
 
 - Personal site: [estelledc.github.io](https://estelledc.github.io/)
-- AI project: [全智评](https://github.com/estelledc/quanzhiping-deploy)
+- AI project: [全智评](https://www.quanzhiping.com/)
 - Focus: AI Agent, frontend engineering, knowledge systems, content workflows
 
 ## What I Build
@@ -52,5 +52,5 @@ Daily -> Problems -> Learnings -> Wiki -> Feedback -> Next Action
 ## Links
 
 - Main site: [https://estelledc.github.io](https://estelledc.github.io/)
-- 全智评: [https://github.com/estelledc/quanzhiping-deploy](https://github.com/estelledc/quanzhiping-deploy)
+- 全智评: [https://www.quanzhiping.com](https://www.quanzhiping.com/)
 - Archive blog: [https://estelledc.github.io/archive-2024/](https://estelledc.github.io/archive-2024/)
