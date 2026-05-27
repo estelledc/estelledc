@@ -6,7 +6,7 @@ I turn ambiguous product ideas into shipped systems: product judgment first, AI 
 
 我关注的不是“会用 AI 写代码”，而是如何判断什么问题值得做，设计系统如何闭环，组织 AI、工具和人协作，并把结果交付到真实世界。
 
-[Personal site](https://estelledc.github.io/) · [全智评](https://www.quanzhiping.com/) · [Thyself](https://www.thyself.cc/)
+[Personal site](https://estelledc.github.io/) · [Learning Notes](https://estelledc.github.io/study/) · [全智评](https://www.quanzhiping.com/) · [Thyself](https://www.thyself.cc/)
 
 ## Direction
 
