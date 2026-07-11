@@ -1,55 +1,45 @@
 # Jason Xun
 
-**Product Systems Builder · AI orchestration · Full-stack delivery**
+**Product Systems Builder · Product Engineer · AI workflows · Web / iOS**
 
-I turn ambiguous product ideas into shipped systems: product judgment first, AI agents as leverage, full-stack engineering as the delivery surface, and verification as the operating discipline.
+我把模糊需求收敛成可运行、可解释、可验证的产品系统。目标是 Product Engineer / AI Application Engineer 类岗位，关注前端、iOS、Agent 工作流与证据化交付。
 
-我关注的不是“会用 AI 写代码”，而是如何判断什么问题值得做，设计系统如何闭环，组织 AI、工具和人协作，并把结果交付到真实世界。
+> **English summary:** I build evidence-led product systems across AI orchestration, web, and iOS—owning the path from product framing and interface decisions to delivery, verification, and honest limits.
 
-[Personal site](https://estelledc.github.io/) · [Learning Notes](https://estelledc.github.io/study/) · [全智评](https://www.quanzhiping.com/) · [Thyself](https://www.thyself.cc/)
+[Hub](https://estelledc.github.io/) · [Work](https://estelledc.github.io/work/) · [About](https://estelledc.github.io/about/) · [Résumé](https://estelledc.github.io/resume/) · [GitHub](https://github.com/estelledc)
 
-## Direction
+**Three proofs:** [全智评 · Shipped](https://estelledc.github.io/work/quanzhiping/) · [BJ-Pal · 47/100 限定评测](https://estelledc.github.io/work/bj-pal/) · [UIKit Lab · 2/2 UI Test](https://github.com/estelledc/UIKitLifecycleDemo/blob/main/UIKitLifecycleDemoUITests/UIKitLifecycleDemoUITests.swift)
 
-I work across frontend, backend, and AI tooling, but I do not treat those as identity boxes. They are surfaces of one job: own the path from problem definition to shipped product.
+## Selected work
 
-The durable version of that role is the person who can:
+项目标题优先进入脱敏公开案例或独立展示站；私有项目只展示已允许公开的产品与工程证据。
 
-- frame a vague problem into a concrete product constraint
-- design the system loop across interface, data, backend, AI, deployment, and feedback
-- delegate execution to agents without losing judgment or accountability
-- verify outcomes with tests, real-device checks, logs, and written retrospectives
+### Public systems
 
-## Selected Work
+- **[全智评](https://estelledc.github.io/work/quanzhiping/)** — `Shipped · 已上线` 把实操视频、评分标准、AI 辅助反馈和教师复核接进同一条证据工作流。独立负责产品与全栈实现；公开案例不披露私有源码和真实学生数据。
+- **[BJ-Pal](https://estelledc.github.io/work/bj-pal/)** — `Prototype · 原型验证` 把群体活动的偏好、风险和改线组织成可追踪 Agent 决策。47/100 只是限定场景评测，不是真实用户效果；KeepL 为共同作者。
+- **[小柴](https://estelledc.github.io/work/xiaochai/)** — `Prototype · Private source` 完全本地的 iOS 每日纸条原型，以脱敏案例说明无账号、无云端、无追踪的产品边界。
 
-| Project | What it is | System angle |
-| --- | --- | --- |
-| [全智评](https://www.quanzhiping.com/) | AI evaluation system for practical experiment and vocational-skill videos | Productized an AI scoring workflow across teacher/student interfaces, upload pipeline, ASR, key-frame extraction, multimodal scoring, asynchronous jobs, storage, and deployment. |
-| [Thyself](https://www.thyself.cc/) | Finite, explainable longform recommendation product | Built around a daily 8-article panel, readable recommendation reasons, Persona modeling, quality gates, LLM reranking, caching, and a browser-extension feedback loop. |
-| [触见千年](https://www.bilibili.com/video/BV1Pv1EB3EQT) | Apple Vision Pro cultural-heritage interaction project | Turned the Zenghouyi bells into an immersive, gesture-driven spatial experience with SwiftUI, RealityKit, ARKit, 3D scene loading, and interaction optimization. |
-| Agent Workflow | Activity-planning and multi-step agent orchestration experiments | Moved from ad-hoc scheduling toward LangGraph, checkpointing, interrupts, Saga compensation, deterministic constraints, and E2E verification. |
+### Learning & engineering systems
 
-## How I Work
+- **[Study](https://estelledc.github.io/work/study/)** — `Maintained · 持续维护` 用“真实问题 → 开源实现 → 经典论文 → 最小验证”组织工程学习。
+- **[HardwareDecoder](https://github.com/estelledc/HardwareDecoder/tree/main/Tests/HardwareDecoderCoreTests)** — `Verified · 12/12 XCTest` 使用真实 H.264 fixture 验证 Annex-B、AVCC 与 VideoToolbox 解码管线；链接直接打开测试源码与 fixture。
+- **[UIKit Lifecycle Lab](https://github.com/estelledc/UIKitLifecycleDemo/blob/main/UIKitLifecycleDemoUITests/UIKitLifecycleDemoUITests.swift)** — `Verified · 2/2 UI Test` 让 Save 与学习面板流程变成可复核的 UI 自动化证据；链接直接打开两条测试源码。
 
-```text
-Problem -> Constraints -> Plan -> Build -> Verify -> Reflect -> Reuse
-```
+## How I decide
 
-- **Product judgment**: clarify users, constraints, success signals, and what not to build.
-- **AI orchestration**: use agents for exploration, implementation, review, and repetitive execution, while keeping human judgment in the loop.
-- **Engineering delivery**: connect frontend, backend, storage, async jobs, deployment, and observability into one working system.
-- **Verification discipline**: test the actual symptom, inspect the diff, check the live surface, and avoid claiming success without evidence.
-- **Knowledge compounding**: convert problems, project lessons, and feedback into reusable notes, wiki links, and next actions.
+- **Systems over isolated screens** — 界面、数据、AI、失败路径和人工责任点是同一个产品问题。
+- **Evidence over adjectives** — 数字标注实测、构建、历史或未公开；没有证据时就降低结论强度。
+- **Explainability over hidden magic** — AI 承担执行杠杆，问题、范围、取舍、验收和最终责任保留在人。
 
-## Current Focus
+## Evidence before adjectives
 
-- Product systems that combine interface, data, AI capability, and feedback loops.
-- Agent workflows that are inspectable, interruptible, recoverable, and testable.
-- Frontend quality under real constraints: mobile, WebView, canvas/WebGL, accessibility, and fallback behavior.
-- Practical AI engineering: context design, quality gates, evals, rollback paths, and human review points.
+`Shipped` 表示有公开产品表面；`Maintained` 表示仍在维护；`Prototype` 只证明限定范围内的交互或工作流；`Private source` 只公开脱敏证据。每个项目的 AI 协作、共同作者和未验证边界以对应页面为准。
 
-## Operating Principles
+## Current focus
 
-- Build the smallest system that can prove the real behavior.
-- Keep AI powerful, but never unaccountable.
-- Prefer clear constraints over clever prompts.
-- Make every hard-won lesson reusable.
+- 可中断、可恢复、可评测的 Agent 工作流。
+- 连接界面、数据、AI 和人工复核点的产品系统。
+- Web / iOS / 系统实验中的性能、无障碍与可观察性。
+
+完整项目索引与实时边界见 [Work](https://estelledc.github.io/work/)；经历摘要见 [Résumé](https://estelledc.github.io/resume/)。
