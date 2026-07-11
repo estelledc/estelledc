@@ -1,0 +1,23 @@
+README.md
+  s_8b22b54b56b2ba::t_5a0cca646b730b 3,5,7,9,11,13,15,17-19,21,23-25,27,30,33-37,39,41,43-46,48-56
+scripts/check_profile.py
+  s_8b22b54b56b2ba::t_4e376d1a672fd4 1-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "90081e0a36d0f6dbfa1c1a6e70b152a8ace2b9e0",
+  "prompts": {},
+  "sessions": {
+    "s_8b22b54b56b2ba": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_8b22b54b56b2ba",
+        "model": "unknown"
+      },
+      "human_author": "Jason <150260202+estelledc@users.noreply.github.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
