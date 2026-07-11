@@ -1,0 +1,21 @@
+.github/workflows/quality.yml
+  s_33eec759195d89::t_1d7718c5331ab3 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "0683f33dc2247ccce4cbd0b1d4e6fc815bbab366",
+  "prompts": {},
+  "sessions": {
+    "s_33eec759195d89": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "s_33eec759195d89",
+        "model": "unknown"
+      },
+      "human_author": "Jason <150260202+estelledc@users.noreply.github.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
