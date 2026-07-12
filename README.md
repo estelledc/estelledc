@@ -31,6 +31,7 @@
 - **Systems over isolated screens** — 界面、数据、AI、失败路径和人工责任点是同一个产品问题。
 - **Evidence over adjectives** — 数字标注实测、构建、历史或未公开；没有证据时就降低结论强度。
 - **Explainability over hidden magic** — AI 承担执行杠杆，问题、范围、取舍、验收和最终责任保留在人。
+- **Feedback over decoration** — 高频与键盘操作即时响应；动效只解释状态或空间变化，并为 reduced motion 保留等价反馈。
 
 ## Evidence before adjectives
 
