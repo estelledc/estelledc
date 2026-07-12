@@ -26,6 +26,12 @@ class ProfileContractTests(unittest.TestCase):
             self.assertIn("/main/", url)
             self.assertEqual(contract["passed"], contract["total"])
 
+    def test_interaction_principle_states_accessible_feedback_contract(self) -> None:
+        text = check_profile.README.read_text(encoding="utf-8")
+        self.assertIn("Feedback over decoration", text)
+        self.assertIn("键盘操作即时响应", text)
+        self.assertIn("reduced motion 保留等价反馈", text)
+
     def test_live_check_accepts_successful_or_partial_responses(self) -> None:
         with patch.object(check_profile, "probe_live_url", return_value=(206, "resolved")):
             with redirect_stdout(StringIO()):

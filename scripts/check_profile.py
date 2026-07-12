@@ -128,6 +128,7 @@ def check(*, live: bool = False, timeout: float = 10.0) -> None:
         "Systems over isolated screens",
         "Evidence over adjectives",
         "Explainability over hidden magic",
+        "Feedback over decoration",
     ]:
         require(principle in text, f"decision principle missing: {principle}")
 
