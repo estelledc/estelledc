@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that the GitHub Profile README matches the public Hub contract."""
+"""Check that the GitHub Profile README matches the public evidence contract."""
 
 from __future__ import annotations
 
@@ -16,48 +16,57 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 HUB = ROOT.parent / "estelledc.github.io"
 
-NAVIGATION = {
-    "Hub": "https://estelledc.github.io/",
-    "Work": "https://estelledc.github.io/work/",
-    "About": "https://estelledc.github.io/about/",
-    "Résumé": "https://estelledc.github.io/resume/",
-    "GitHub": "https://github.com/estelledc",
+TAGLINE = "AI Application Engineer · Reliable agents, RAG/evals · Web/iOS delivery"
+NAVIGATION = (
+    ("Work", "https://estelledc.github.io/work/"),
+    ("Résumé", "https://estelledc.github.io/resume/"),
+    ("About", "https://estelledc.github.io/about/"),
+)
+NAVIGATION_LINE = " · ".join(f"[{label}]({url})" for label, url in NAVIGATION)
+HUB_ROUTES = {
+    "Work": HUB / "work" / "index.html",
+    "Résumé": HUB / "resume" / "index.html",
+    "About": HUB / "about" / "index.html",
 }
-
-CASE_STATUSES = {
-    "quanzhiping": "Shipped · 已上线",
-    "bj-pal": "Prototype · 原型验证",
-    "xiaochai": "Prototype · Private source",
-    "study": "Maintained · 持续维护",
-}
-SELECTED_CASES = set(CASE_STATUSES)
-FIRST_SCREEN_PROOFS = {
-    "全智评 · Shipped": "https://estelledc.github.io/work/quanzhiping/",
-    "BJ-Pal · 47/100 限定评测": "https://estelledc.github.io/work/bj-pal/",
-    "UIKit Lab · 2/2 UI Test": (
-        "https://github.com/estelledc/UIKitLifecycleDemo/blob/main/"
-        "UIKitLifecycleDemoUITests/UIKitLifecycleDemoUITests.swift"
-    ),
-}
-PUBLIC_ARTIFACTS = {
-    "HardwareDecoder": {
-        "url": "https://github.com/estelledc/HardwareDecoder/tree/main/Tests/HardwareDecoderCoreTests",
-        "passed": 12,
-        "total": 12,
-        "suite": "XCTest",
-        "minimum_links": 1,
+PUBLIC_EVIDENCE = {
+    "TraceFetch": {
+        "url": "https://github.com/estelledc/tracefetch",
+        "marker": "v1.0 · Public source",
     },
-    "UIKit Lifecycle Lab": {
-        "url": (
-            "https://github.com/estelledc/UIKitLifecycleDemo/blob/main/"
-            "UIKitLifecycleDemoUITests/UIKitLifecycleDemoUITests.swift"
-        ),
-        "passed": 2,
-        "total": 2,
-        "suite": "UI Test",
-        "minimum_links": 2,
+    "BJ-Pal": {
+        "url": "https://github.com/estelledc/bj-pal",
+        "marker": "v6.29 · Public source · Co-authored with KeepL",
+    },
+    "Tencent/WeKnora PR #1785": {
+        "url": "https://github.com/Tencent/WeKnora/pull/1785",
+        "marker": "Merged OSS contribution",
+    },
+    "web-plan-execute": {
+        "url": "https://github.com/estelledc/web-plan-execute/releases/tag/v0.9.0-rc.1",
+        "marker": "0.9.0-rc.1 · Public RC",
     },
 }
+STALE_MARKERS = (
+    "47/100",
+    "2/2 UI Test",
+    "Three proofs",
+    "Product Systems Builder",
+    "全智评",
+    "HardwareDecoder",
+    "UIKit Lifecycle Lab",
+)
+PRIVATE_REPO_URLS = (
+    "github.com/estelledc/quanzhiping",
+    "github.com/estelledc/xiaochai",
+)
+DECORATION_MARKERS = (
+    "shields.io",
+    "github-readme-stats",
+    "github-readme-streak",
+    "streak-stats",
+    "github-profile-trophy",
+    "visitor-badge",
+)
 
 
 def require(condition: bool, message: str) -> None:
@@ -67,14 +76,6 @@ def require(condition: bool, message: str) -> None:
 
 def markdown_links(markdown: str) -> list[tuple[str, str]]:
     return re.findall(r"(?<!!)\[([^\]]+)\]\((https?://[^)]+)\)", markdown)
-
-
-def case_slug(url: str) -> str | None:
-    parsed = urlparse(url)
-    match = re.fullmatch(r"/work/([^/]+)/", parsed.path)
-    if parsed.netloc == "estelledc.github.io" and match:
-        return match.group(1)
-    return None
 
 
 def probe_live_url(url: str, timeout: float) -> tuple[int | None, str]:
@@ -112,87 +113,88 @@ def check(*, live: bool = False, timeout: float = 10.0) -> None:
     require(HUB.is_dir(), "Hub checkout missing; cannot verify staged public routes")
     text = README.read_text(encoding="utf-8")
     links = markdown_links(text)
+    unique_urls = {url for _, url in links}
 
-    for label, url in NAVIGATION.items():
-        require(f"[{label}]({url})" in text, f"navigation link missing: {label}")
+    require(text.startswith("# Jason Xun\n"), "profile title drift")
+    require(f"**{TAGLINE}**" in text, "AI application positioning drift")
+    for phrase in ["可运行、可评测、可恢复", "工具边界", "失败语义", "证据回放", "人工责任"]:
+        require(phrase in text, f"Chinese positioning missing: {phrase}")
+    require(text.count("English summary:") == 1, "exactly one English summary is required")
 
-    require("English summary:" in text, "English summary missing")
-    require("### Public systems" in text, "Public systems selection missing")
-    require("### Learning & engineering systems" in text, "learning and engineering selection missing")
-    require("Evidence before adjectives" in text, "status evidence legend missing")
-    require("Three proofs:" in text, "first-screen proof line missing")
-    require("Product Engineer / AI Application Engineer" in text, "target role is missing")
-    for label, url in FIRST_SCREEN_PROOFS.items():
-        require((label, url) in links, f"first-screen proof contract mismatch: {label} -> {url}")
-    for principle in [
-        "Systems over isolated screens",
-        "Evidence over adjectives",
-        "Explainability over hidden magic",
-        "Feedback over decoration",
-    ]:
-        require(principle in text, f"decision principle missing: {principle}")
+    require(text.count(NAVIGATION_LINE) == 1, "navigation must be Work / Résumé / About only")
+    require("[Hub](" not in text, "Hub navigation link must be removed")
+    require("[GitHub](" not in text, "GitHub self-link must be removed")
+    require("https://github.com/estelledc" not in unique_urls, "GitHub profile self-link remains")
+    for label, route in HUB_ROUTES.items():
+        require(route.is_file(), f"staged Hub route missing: {label}")
 
-    linked_cases = {slug for _, url in links if (slug := case_slug(url))}
-    require(linked_cases == SELECTED_CASES, f"selected Hub cases mismatch: {sorted(linked_cases)}")
-    for slug, status in sorted(CASE_STATUSES.items()):
-        route = HUB / "work" / slug / "index.html"
-        require(route.is_file(), f"staged Hub case route missing: /work/{slug}/")
-        case_page = route.read_text(encoding="utf-8")
-        require(f"https://estelledc.github.io/work/{slug}/" in case_page, f"case canonical mismatch: {slug}")
-        require(status in case_page, f"Hub status mismatch for {slug}: {status}")
-        require(status in text, f"Profile status mismatch for {slug}: {status}")
-    require((HUB / "work" / "index.html").is_file(), "staged Work index missing")
-    require((HUB / "about" / "index.html").is_file(), "staged About route missing")
-    require((HUB / "resume" / "index.html").is_file(), "staged Resume route missing")
-
-    for label, contract in PUBLIC_ARTIFACTS.items():
-        url = str(contract["url"])
-        passed = int(contract["passed"])
-        total = int(contract["total"])
-        suite = str(contract["suite"])
-        minimum_links = int(contract["minimum_links"])
-        marker = f"Verified · {passed}/{total} {suite}"
-
-        require(passed == total and total > 0, f"artifact must remain a bounded passing claim: {label}")
-        require((label, url) in links, f"public artifact contract mismatch: {label} -> {url}")
-        require(sum(link_url == url for _, link_url in links) >= minimum_links, f"artifact link count drift: {label}")
-        require(f"`{marker}`" in text, f"public artifact evidence drift: {label} -> {marker}")
-        parsed = urlparse(url)
+    require(text.count("## Selected evidence") == 1, "Selected evidence section missing")
+    require(text.count("## How I work") == 1, "How I work section missing")
+    selected = text.split("## Selected evidence", 1)[1].split("## How I work", 1)[0]
+    require(len(re.findall(r"^- ", selected, flags=re.MULTILINE)) == 4, "exactly four evidence items required")
+    for label, contract in PUBLIC_EVIDENCE.items():
+        url = contract["url"]
+        marker = contract["marker"]
+        require((label, url) in links, f"public evidence link mismatch: {label} -> {url}")
+        quoted_marker = chr(96) + marker + chr(96)
+        require(quoted_marker in text, f"public evidence status mismatch: {label} -> {marker}")
+    first_screen = "\n".join(text.splitlines()[:18])
+    require(TAGLINE in first_screen, "AI application role must remain on the first screen")
+    for label, contract in PUBLIC_EVIDENCE.items():
+        require(label in first_screen, f"public evidence must remain on the first screen: {label}")
         require(
-            parsed.netloc == "github.com" and "/main/" in parsed.path,
-            f"artifact is not a main-branch GitHub source link: {url}",
+            contract["marker"] in first_screen,
+            f"public evidence status must remain on the first screen: {label}",
         )
 
-    for stale_url in [
-        "https://estelledc.github.io/HardwareDecoder/",
-        "https://estelledc.github.io/UIKitLifecycleDemo/",
-    ]:
-        require(stale_url not in text, f"undeployed lab page remains linked: {stale_url}")
-
-    require("KeepL 为共同作者" in text, "BJ-Pal co-author attribution missing")
-    require("不披露私有源码和真实学生数据" in text, "Quanzhiping privacy boundary missing")
-    require("脱敏案例" in text, "private-source evidence boundary missing")
-
-    require("github.com/estelledc/quanzhiping" not in text.lower(), "private Quanzhiping source linked")
-    require("github.com/estelledc/xiaochai" not in text.lower(), "private Xiaochai source linked")
+    require("Co-authored with KeepL" in text, "BJ-Pal KeepL attribution missing")
+    require("4 条回归用例" in text, "WeKnora regression evidence missing")
+    require("当前仍是 RC" in text, "web-plan-execute RC boundary missing")
     require(
-        "shields.io" not in text and "![" not in text and "<img" not in text.lower(),
-        "badge or image wall detected",
+        "Release、RC 与测试收据只证明对应版本和范围" in text,
+        "release and test receipt boundary missing",
     )
-    require(not re.search(r"<[^>]+>", text), "README must stay pure Markdown without raw HTML")
+    require(
+        "不等于生产 SLA、规模化运行或真实用户效果" in text,
+        "production and user-outcome boundary missing",
+    )
 
-    unique_urls = {url for _, url in links}
-    require(len(unique_urls) <= 11, f"profile link surface is too broad: {len(unique_urls)} unique URLs")
-    require(len(text.splitlines()) <= 80, "profile has grown into a repository inventory")
+    require(
+        "产品案例、私有项目的脱敏证据与 iOS 经历统一由 Work 页面承载。" in text,
+        "Work routing for product, private, and iOS evidence missing",
+    )
+    hub_urls = {url for url in unique_urls if urlparse(url).netloc == "estelledc.github.io"}
+    require(hub_urls == {url for _, url in NAVIGATION}, "Profile must not deep-link fixed Hub cases")
+    lowered = text.lower()
+    for private_url in PRIVATE_REPO_URLS:
+        require(private_url not in lowered, f"private repository linked: {private_url}")
+    for marker in STALE_MARKERS:
+        require(marker not in text, f"stale profile claim remains: {marker}")
+
+    how = text.split("## How I work", 1)[1].strip()
+    require(not re.search(r"^## ", how, flags=re.MULTILINE), "How I work must be the final section")
+    require(len(re.findall(r"^- ", how, flags=re.MULTILINE)) == 3, "exactly three working principles required")
+    for principle in ["失败关闭", "可重放评测", "诚实边界"]:
+        require(f"**{principle}**" in how, f"working principle missing: {principle}")
+
+    require("![" not in text, "README images are forbidden")
+    require(not re.search(r"<[^>]+>", text), "README must stay pure Markdown without raw HTML")
+    for marker in DECORATION_MARKERS:
+        require(marker not in lowered, f"dynamic decoration is forbidden: {marker}")
+    require(
+        all(urlparse(url).netloc in {"github.com", "estelledc.github.io"} for url in unique_urls),
+        "unexpected link host",
+    )
+    require(len(unique_urls) <= 10, f"profile link surface is too broad: {len(unique_urls)} unique URLs")
+    require(len(text.splitlines()) <= 55, "profile has grown beyond 55 lines")
 
     if live:
         check_live_links(unique_urls, timeout)
 
     print(
         "OK: profile contract; "
-        f"{len(SELECTED_CASES)} selected Hub cases + {len(PUBLIC_ARTIFACTS)} public labs / "
-        f"{len(unique_urls)} unique links / "
-        "staged Work, About, and Resume routes present"
+        f"{len(PUBLIC_EVIDENCE)} public evidence items / {len(unique_urls)} unique links / "
+        "pure Markdown / staged Work, Résumé, and About routes present"
     )
 
 
