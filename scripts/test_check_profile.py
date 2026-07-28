@@ -41,10 +41,10 @@ class ProfileContractTests(unittest.TestCase):
         self.assertIn("当前仍是 RC", self.text)
         self.assertIn("不等于生产 SLA、规模化运行或真实用户效果", self.text)
 
-    def test_weknora_merge_and_bj_pal_attribution_are_fixed(self) -> None:
+    def test_weknora_merge_and_bj_pal_public_status_are_fixed(self) -> None:
         self.assertIn("Merged OSS contribution", self.text)
         self.assertIn("4 条回归用例", self.text)
-        self.assertIn("Co-authored with KeepL", self.text)
+        self.assertIn("v6.29 · Public source", self.text)
 
     def test_role_and_four_evidence_items_fit_on_the_first_screen(self) -> None:
         first_screen = "\n".join(self.text.splitlines()[:18])
@@ -57,7 +57,10 @@ class ProfileContractTests(unittest.TestCase):
         self.assertIn(check_profile.NAVIGATION_LINE, self.text)
         self.assertNotIn("[Hub](", self.text)
         self.assertNotIn("[GitHub](", self.text)
-        self.assertIn("私有项目的脱敏证据与 iOS 经历统一由 Work 页面承载", self.text)
+        self.assertIn("私有项目与 iOS 经历统一由 Work 页面承载", self.text)
+        lowered = self.text.lower()
+        for private_url in check_profile.PRIVATE_REPO_URLS:
+            self.assertNotIn(private_url, lowered)
 
     def test_readme_is_static_pure_markdown_with_three_principles(self) -> None:
         self.assertNotIn("![", self.text)

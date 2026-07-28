@@ -35,7 +35,7 @@ PUBLIC_EVIDENCE = {
     },
     "BJ-Pal": {
         "url": "https://github.com/estelledc/bj-pal",
-        "marker": "v6.29 · Public source · Co-authored with KeepL",
+        "marker": "v6.29 · Public source",
     },
     "Tencent/WeKnora PR #1785": {
         "url": "https://github.com/Tencent/WeKnora/pull/1785",
@@ -147,7 +147,6 @@ def check(*, live: bool = False, timeout: float = 10.0) -> None:
             f"public evidence status must remain on the first screen: {label}",
         )
 
-    require("Co-authored with KeepL" in text, "BJ-Pal KeepL attribution missing")
     require("4 条回归用例" in text, "WeKnora regression evidence missing")
     require("当前仍是 RC" in text, "web-plan-execute RC boundary missing")
     require(
@@ -160,7 +159,7 @@ def check(*, live: bool = False, timeout: float = 10.0) -> None:
     )
 
     require(
-        "产品案例、私有项目的脱敏证据与 iOS 经历统一由 Work 页面承载。" in text,
+        "产品案例、私有项目与 iOS 经历统一由 Work 页面承载。" in text,
         "Work routing for product, private, and iOS evidence missing",
     )
     hub_urls = {url for url in unique_urls if urlparse(url).netloc == "estelledc.github.io"}
