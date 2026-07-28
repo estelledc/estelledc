@@ -11,11 +11,11 @@
 ## Selected evidence
 
 - **[TraceFetch](https://github.com/estelledc/tracefetch)** — `v1.0 · Public source` 把搜索候选与可信证据分开，产出带原文、锚点、收据和 SHA-256 的可验证 evidence bundle；不判断来源真假，也不绕过访问控制。
-- **[BJ-Pal](https://github.com/estelledc/bj-pal)** — `v6.29 · Public source · Co-authored with KeepL` 用 durable jobs、有界模型执行和可复算评测承载短途规划；公开证据不外推生产容量或用户效果。
+- **[BJ-Pal](https://github.com/estelledc/bj-pal)** — `v6.29 · Public source` 用 durable jobs、有界模型执行和可复算评测承载短途规划；公开证据不外推生产容量或用户效果。
 - **[Tencent/WeKnora PR #1785](https://github.com/Tencent/WeKnora/pull/1785)** — `Merged OSS contribution` 过滤 Excel 中的 DISPIMG / IMAGE 图像函数串，并补齐 4 条回归用例。
 - **[web-plan-execute](https://github.com/estelledc/web-plan-execute/releases/tag/v0.9.0-rc.1)** — `0.9.0-rc.1 · Public RC` 把规划、独立复审、执行、交接和验证收敛为一份可恢复的 living ExecPlan；当前仍是 RC。
 
-产品案例、私有项目的脱敏证据与 iOS 经历统一由 Work 页面承载。
+产品案例、私有项目与 iOS 经历统一由 Work 页面承载。
 
 ## How I work
 
